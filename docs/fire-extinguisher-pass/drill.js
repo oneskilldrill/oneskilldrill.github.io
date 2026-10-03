@@ -214,7 +214,7 @@ window.DRILL = {
   ],
   sourcesNote: "Based on public OSHA material as of October 2026. Follow your workplace's emergency action plan. Only fight a fire if your employer has trained you and expects you to.",
   disclaimer: "**Training supplement only.** Not a substitute for OSHA-required training, certification, or your employer's written program.",
-  cta: { title: "Get this customized for your SOP", text: "Want this drill rebuilt around your own emergency action plan, extinguisher locations and site rules? Rebranded with your company name, if you like. See how it works.", url: "../contact/", label: "Get this customized for your SOP" },
+  cta: { title: "Get this customized for your SOP", text: "Want this drill rebuilt around your own emergency action plan, extinguisher locations and site rules? Rebranded with your company name, if you like. See how it works.", url: "../contact/", label: "Get this customized for your SOP", email: "oneskilldrill@outlook.com" },
   moreUrl: "../#safety",
   moreLabel: "More safety drills",
   footer: [

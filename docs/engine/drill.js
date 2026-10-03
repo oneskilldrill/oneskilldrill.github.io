@@ -112,7 +112,7 @@
   V.message = function (v) {
     var ch = v.channel || "sms";
     var w = el("div", "msgv " + esc(ch));
-    var icon = { sms: "💬", email: "✉️", call: "📞", voicemail: "📞" }[ch] || "💬";
+    var icon = { sms: "💬", chat: "💬", email: "✉️", call: "📞", voicemail: "📞", popup: "⚠️", letter: "📄" }[ch] || "💬";
     var head = '<span class="mi">' + icon + '</span><span class="mf"><b>' + esc(v.from || "") + "</b>" +
       (v.fromDetail ? "<small>" + esc(v.fromDetail) + "</small>" : "") + "</span>" + (v.time ? '<span class="mt">' + esc(v.time) + "</span>" : "");
     w.appendChild(el("div", "mh", head));
@@ -260,6 +260,7 @@
     }
     c.appendChild(ul);
     if (D.takeaway) c.appendChild(el("p", "lede", md(D.takeaway)));
+    if (D.help) c.appendChild(helpBlock());
 
     var row = el("div", "btn-row");
     var again = el("button", "btn", "Try again");
@@ -283,6 +284,26 @@
     again.focus({ preventScroll: true });
   }
 
+  // Optional "if it happened to you" box with real help resources (tel: and https: links only)
+  function helpBlock() {
+    var H = D.help, w = el("div", "help");
+    w.setAttribute("role", "region");
+    w.setAttribute("aria-label", H.title || "Get help");
+    w.appendChild(el("h3", "", esc(H.title || "Get help")));
+    if (H.intro) w.appendChild(el("p", "", md(H.intro)));
+    var ul = el("ul", "");
+    (H.items || []).forEach(function (it) {
+      var h = md(it.text || "");
+      if (it.tel && /^\+?[0-9-]+$/.test(it.tel)) h += ' <a class="help-link" href="tel:' + esc(it.tel) + '">' + esc(it.telLabel || it.tel) + "</a>";
+      if (it.url && /^https:\/\//.test(it.url)) h += ' <a class="help-link" href="' + esc(it.url) + '" target="_blank" rel="noopener">' + esc(it.urlLabel || it.url) + "</a>";
+      if (it.after) h += " " + md(it.after);
+      if (it.source && /^https:\/\//.test(it.source)) h += ' <small>(Source: <a href="' + esc(it.source) + '" target="_blank" rel="noopener">' + esc(it.sourceLabel || it.source) + "</a>)</small>";
+      ul.appendChild(el("li", "", h));
+    });
+    w.appendChild(ul);
+    if (H.note) w.appendChild(el("p", "help-note", md(H.note)));
+    return w;
+  }
   function disclaimerBlock() {
     var w = el("p", "disclaimer", md(D.disclaimer));
     w.setAttribute("role", "note");
@@ -300,6 +321,9 @@
       a.href = x.url;
       if (/^https?:/.test(x.url)) { a.target = "_blank"; a.rel = "noopener"; }
       w.appendChild(a);
+    }
+    if (x.email && /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(x.email)) {
+      w.appendChild(el("p", "cta-mail", 'Or email us: <a href="mailto:' + esc(x.email) + '?subject=' + encodeURIComponent("Custom drill: " + D.title) + '">' + esc(x.email) + "</a>"));
     }
     return w;
   }
@@ -323,6 +347,8 @@
       if (/^[a-z-]+$/.test(k) && /^#[0-9a-fA-F]{3,8}$/.test(D.theme[k])) document.documentElement.style.setProperty("--" + k, D.theme[k]);
     });
   }
+  // Optional larger text (e.g. for older audiences)
+  if (D.largeText) document.documentElement.classList.add("lg");
   if (D.header) {
     var top = document.querySelector(".top");
     if (top) {
