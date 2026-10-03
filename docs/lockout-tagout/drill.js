@@ -216,7 +216,7 @@ window.DRILL = {
   ],
   sourcesNote: "Based on public OSHA material as of October 2026. Your employer's written energy control procedure for each machine governs the exact steps.",
   disclaimer: "**Training supplement only.** Not a substitute for OSHA-required training, certification, or your employer's written program.",
-  cta: { title: "Get this customized for your SOP", text: "Want this drill rebuilt around your own machines, energy control procedures and site rules? See how a customized version works.", url: "../contact/", label: "Get this customized for your SOP" },
+  cta: { title: "Get this customized for your SOP", text: "Want this drill rebuilt around your own machines, energy control procedures and site rules? Rebranded with your company name, if you like. See how it works.", url: "../contact/", label: "Get this customized for your SOP" },
   moreUrl: "../#safety",
   moreLabel: "More safety drills",
   footer: [

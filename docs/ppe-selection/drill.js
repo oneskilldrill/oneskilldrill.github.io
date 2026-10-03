@@ -215,7 +215,7 @@ window.DRILL = {
   ],
   sourcesNote: "Based on public OSHA material as of October 2026. Check the chemical's SDS and the PPE manufacturer's data for your exact task.",
   disclaimer: "**Training supplement only.** Not a substitute for OSHA-required training, certification, or your employer's written program.",
-  cta: { title: "Get this customized for your SOP", text: "Want this drill rebuilt around your own hazard assessment, PPE list and site rules? See how a customized version works.", url: "../contact/", label: "Get this customized for your SOP" },
+  cta: { title: "Get this customized for your SOP", text: "Want this drill rebuilt around your own hazard assessment, PPE list and site rules? Rebranded with your company name, if you like. See how it works.", url: "../contact/", label: "Get this customized for your SOP" },
   moreUrl: "../#safety",
   moreLabel: "More safety drills",
   footer: [
