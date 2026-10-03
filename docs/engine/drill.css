@@ -118,3 +118,8 @@ footer p{margin:4px 0}
 .drills a.card:hover{border-color:#aac4bb}
 .drills .go{color:var(--accent);font-weight:700;font-size:14px;margin-top:6px;display:block}
 @media (min-width:600px){.wrap{padding-top:28px}h1{font-size:27px}}
+.disclaimer{margin:14px 0;padding:10px 12px;border-radius:10px;background:#fff7e0;border:1px solid #f0d58a;color:#5a4300;font-size:13.5px;line-height:1.45}
+.cta{margin-top:20px;padding:16px 14px;border-radius:var(--radius);background:var(--accent-soft);border:1.5px solid var(--accent)}
+.cta h3{margin:0 0 6px;font-size:18px;color:var(--ink)}
+.cta p{margin:0 0 12px;color:var(--muted);font-size:14.5px}
+.cta .btn{display:block;text-align:center;text-decoration:none}

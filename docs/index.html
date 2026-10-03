@@ -3,20 +3,68 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>One Skill Drill · Practice one work skill in 3 minutes</title>
-<meta name="description" content="Short interactive practice drills. One skill, five realistic scenarios, instant feedback, and a score.">
+<title>One Skill Drill · Practice one work skill in minutes</title>
+<meta name="description" content="Short interactive practice drills and workplace safety simulators. Realistic scenarios, instant feedback with sources, and a score.">
 <meta name="theme-color" content="#0f7b5f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f7b5f'/%3E%3Ctext x='16' y='22' font-size='16' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'%3E1%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="engine/drill.css">
+<style>
+.section-h{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:26px 2px 10px}
+.section-h:first-of-type{margin-top:22px}
+.section-note{color:var(--muted);font-size:14px;margin:-4px 2px 12px}
+</style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a class="brand" href="./">One <span>Skill</span> Drill</a><span class="tag">3-minute practice drills</span></div>
+  <div class="top"><a class="brand" href="./">One <span>Skill</span> Drill</a><span class="tag">Practice drills</span></div>
   <div class="card">
-    <h1>Practice one work skill in 3 minutes.</h1>
-    <p class="lede">Each drill is five realistic scenarios. Pick the best move, get instant feedback with the reason why, and finish with a score and a short list of what to practice.</p>
-    <ul class="meta"><li>5 questions</li><li>Instant feedback</li><li>Sources cited</li></ul>
+    <h1>Practice one work skill in minutes.</h1>
+    <p class="lede">Each drill is a handful of realistic scenarios. Pick the best move, get instant feedback with the reason why and the source, and finish with a score and a short list of what to practice.</p>
+    <ul class="meta"><li>5–8 decisions</li><li>Instant feedback</li><li>Sources cited</li></ul>
   </div>
+
+  <h2 class="section-h" id="safety">Safety drills</h2>
+  <p class="section-note">Scenario-based refreshers built from public OSHA material. Training supplement only. Not a substitute for OSHA-required training, certification, or your employer's written program.</p>
+  <div class="drills">
+    <a class="card" href="ladder-safety/">
+      <p class="label">Workplace safety · 7 decisions</p>
+      <h2>Ladder safety</h2>
+      <p class="lede" style="margin:0">Inspection, the 4-to-1 angle, roof access, power lines, 3-point contact.</p>
+      <span class="go">Take the drill →</span>
+    </a>
+    <a class="card" href="lockout-tagout/">
+      <p class="label">Workplace safety · 8 decisions</p>
+      <h2>Lockout/tagout (LOTO)</h2>
+      <p class="lede" style="margin:0">The sequence, real isolation, stored energy, verify, group locks, restart.</p>
+      <span class="go">Take the drill →</span>
+    </a>
+    <a class="card" href="ppe-selection/">
+      <p class="label">Workplace safety · 8 decisions</p>
+      <h2>PPE selection</h2>
+      <p class="lede" style="margin:0">Hazard assessment first, then eyes, face, hands, feet and head.</p>
+      <span class="go">Take the drill →</span>
+    </a>
+    <a class="card" href="fire-extinguisher-pass/">
+      <p class="label">Workplace safety · 8 decisions</p>
+      <h2>Fire extinguisher: PASS, and when not to fight</h2>
+      <p class="lede" style="margin:0">Pull, Aim, Squeeze, Sweep, plus the fires you should walk away from.</p>
+      <span class="go">Take the drill →</span>
+    </a>
+    <a class="card" href="forklift-pedestrian-awareness/">
+      <p class="label">Workplace safety · 7 decisions</p>
+      <h2>Forklift pedestrian awareness</h2>
+      <p class="lede" style="margin:0">Blind corners, blocked views, reversing, walkways, raised forks.</p>
+      <span class="go">Take the drill →</span>
+    </a>
+    <a class="card" href="forklift-pre-shift-inspection/">
+      <p class="label">Workplace safety · 5 decisions</p>
+      <h2>Forklift pre-shift inspection</h2>
+      <p class="lede" style="margin:0">How often, what order, chains, brakes, and a propane smell.</p>
+      <span class="go">Take the drill →</span>
+    </a>
+  </div>
+
+  <h2 class="section-h" id="tools">Workplace tools</h2>
   <div class="drills">
     <a class="card" href="copilot-excel-formula-column/">
       <p class="label">for Microsoft 365 Copilot</p>
@@ -25,10 +73,17 @@
       <span class="go">Take the drill →</span>
     </a>
   </div>
+
+  <div class="card" style="margin-top:22px">
+    <h2 style="margin-top:0">Get a drill customized for your SOP</h2>
+    <p class="lede">Want one of these rebuilt around your own procedures, equipment and site rules?</p>
+    <a class="btn" href="contact/" style="display:block;text-align:center;text-decoration:none">How customization works</a>
+  </div>
+
   <footer>
     <span class="fb-brand">One Skill Drill</span>
-    <p>Independent practice drills. Not affiliated with, sponsored by, or endorsed by Microsoft. Microsoft 365, Copilot, and Excel are trademarks of the Microsoft group of companies.</p>
-      </footer>
+    <p>Independent practice drills. Safety drills are not affiliated with or endorsed by OSHA or the U.S. Department of Labor. Not affiliated with, sponsored by, or endorsed by Microsoft. Microsoft 365, Copilot, and Excel are trademarks of the Microsoft group of companies.</p>
+  </footer>
 </div>
 </body>
 </html>

@@ -133,6 +133,7 @@
     var meta = el("ul", "meta");
     (D.meta || [D.questions.length + " questions", "Instant feedback", "Score at the end"]).forEach(function (m) { meta.appendChild(el("li", "", esc(m))); });
     c.appendChild(meta);
+    if (D.disclaimer) c.appendChild(disclaimerBlock());
     var b = el("button", "btn", "Start the drill");
     b.type = "button";
     b.addEventListener("click", start);
@@ -253,10 +254,33 @@
       row.appendChild(more);
     }
     c.appendChild(row);
+    if (D.disclaimer) c.appendChild(disclaimerBlock());
     c.appendChild(sourcesBlock());
+    if (D.cta) c.appendChild(ctaBlock());
     try { localStorage.setItem("osd:" + D.id + ":last", state.score + "/" + n); } catch (e) {}
     document.dispatchEvent(new CustomEvent("drill:done", { detail: { score: state.score, total: n } }));
     again.focus({ preventScroll: true });
+  }
+
+  function disclaimerBlock() {
+    var w = el("p", "disclaimer", md(D.disclaimer));
+    w.setAttribute("role", "note");
+    return w;
+  }
+
+  function ctaBlock() {
+    var x = D.cta;
+    var w = el("div", "cta");
+    w.id = "drill-cta";
+    w.appendChild(el("h3", "", esc(x.title || "Get this customized for your SOP")));
+    if (x.text) w.appendChild(el("p", "", md(x.text)));
+    if (x.url) {
+      var a = el("a", "btn", esc(x.label || x.title || "Learn more"));
+      a.href = x.url;
+      if (/^https?:/.test(x.url)) { a.target = "_blank"; a.rel = "noopener"; }
+      w.appendChild(a);
+    }
+    return w;
   }
 
   function sourcesBlock() {
