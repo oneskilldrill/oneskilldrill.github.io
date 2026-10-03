@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ollama Agent Loops Mini-Course Pack ($39) · Local Loop Desk</title>
+  <meta name="description" content="Self-serve mini-course on local Ollama agent loops: setup boundaries, API, tool-use, failure modes, debugging checklist, sample prompts. $39 one-time zip, pay with BTC or ETH." />
+  <link rel="canonical" href="https://oneskilldrill.github.io/local-loop-course/" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap inner">
+      <a class="logo" href="./">Local Loop Desk</a>
+      <nav>
+        <a href="#pay">Pay with BTC / ETH</a>
+        <a href="#contents">What you get</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap" style="padding:2.5rem 1rem; max-width:42rem;">
+      <div class="badge-row">
+        <span class="badge price" id="price-badge">$39</span>
+        <span class="badge">BTC</span>
+        <span class="badge">ETH</span>
+        <span class="badge warn">Manual fulfill</span>
+      </div>
+      <h1>Ollama Agent Loops Mini-Course Pack</h1>
+      <p class="lede">Diagnosis-first teach pack for stuck local agent loops: OOM, bind failures, silent death loops, tool-use that never stops. Seven markdown modules — education only, no income claims.</p>
+
+      <div class="card" style="margin:1.5rem 0; padding:1.25rem;" id="pay">
+        <h2 id="product-name" style="margin-top:0;">Ollama Agent Loops Mini-Course Pack — $39</h2>
+        <p id="product-description">Self-serve mini-course on local Ollama agent loops: setup boundaries, API, tool-use, failure modes, debugging checklist, sample prompts. Education only — no income claims.</p>
+
+        <h3>1a. Send BTC (Bitcoin mainnet)</h3>
+        <p>Send <strong id="amount-btc">$39 USD in BTC</strong> (at send-time spot) to:</p>
+        <p><code style="word-break:break-all; font-size:0.95rem;">bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg</code></p>
+        <p class="hint">Native SegWit (bc1…). Bitcoin mainnet only — not Lightning, not wrapped BTC on other chains.</p>
+
+        <h3>1b. Or send ETH (Ethereum mainnet)</h3>
+        <p>Send <strong id="amount-eth">$39 USD in ETH</strong> (at send-time spot) to:</p>
+        <p><code style="word-break:break-all; font-size:0.95rem;">0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8</code></p>
+        <p class="hint">Native <strong>ETH on Ethereum mainnet</strong> only. Do <strong>not</strong> send ERC-20s, Polygon, Base, Arbitrum, or USDC unless we open a separate rail — mainnet ETH preferred for simplicity.</p>
+
+        <h3>2. Email proof</h3>
+        <p>Email <strong>txid + the address you used to send from + SKU</strong> (<code>ollama-agent-loops-course</code>) to:
+          <a id="email-link" href="mailto:oneskilldrill@outlook.com?subject=Ollama%20Agent%20Loops%20Mini-Course%20Pack%20crypto%20order">oneskilldrill@outlook.com</a>
+        </p>
+        <p class="hint">Say whether you paid with BTC or ETH.</p>
+
+        <h3>3. Get the zip</h3>
+        <p>We verify on-chain (BTC: 1+ confirmation; ETH: sufficient mainnet confirmations) and reply with the <code>ollama-agent-loops-course-v0.1.zip</code> download link. Usually same day PT.</p>
+      </div>
+
+      <div class="card" style="margin:1.5rem 0; padding:1.25rem;" id="contents">
+        <h2 style="margin-top:0; font-size:1.1rem;">What you get (7 modules)</h2>
+        <ul style="margin:0; padding-left:1.2rem; line-height:1.7;">
+          <li><strong>01 Setup boundaries</strong> — hardware reality, privacy, bind address, what not to expose</li>
+          <li><strong>02 Runner API</strong> — Ollama serve, <code>/api/tags</code> / <code>/api/chat</code>, host/model env</li>
+          <li><strong>03 Tool-use loops</strong> — input → model → tool → observation; stop/retry limits</li>
+          <li><strong>04 Failure modes</strong> — OOM, connection refused, silent loops, missing models</li>
+          <li><strong>05 Debugging checklist</strong> — printable P0→P2 checklist</li>
+          <li><strong>06 Sample prompts</strong> — copy-paste system prompts + loop-test prompts</li>
+          <li><strong>07 License + disclaimer</strong> — license and honesty limits</li>
+        </ul>
+        <p class="hint" style="margin-bottom:0;">For hobbyists and indie builders running Ollama on a laptop or mini PC whose loop runs forever, OOMs mid-tool, or can't reach <code>127.0.0.1:11434</code>. Not live coaching, not guaranteed speedups.</p>
+      </div>
+
+      <p>
+        <a class="btn btn-primary" href="#pay">Pay with BTC / ETH — $39</a>
+        <a class="btn btn-ghost" href="https://mempool.space/address/bc1q2csjux4ey8at6muk7zhheyhvad9e4hudsumlzg" target="_blank" rel="noopener">Watch BTC</a>
+        <a class="btn btn-ghost" href="https://etherscan.io/address/0xcBd03b1BE83BBBCCaA3aE00166f4a57c377324E8" target="_blank" rel="noopener">Watch ETH</a>
+      </p>
+      <p class="hint">One-time zip · No subscription · Educational materials only. Not affiliated with Ollama, Meta, or any model vendor. Questions: <a href="mailto:oneskilldrill@outlook.com">oneskilldrill@outlook.com</a></p>
+      <p class="hint">Local Loop Desk · <a href="../">One Skill Drill</a></p>
+    </div>
+  </main>
+  <script>
+    // Carry campaign tags (utm_*) into the order email so the source survives checkout.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var tags = [];
+      params.forEach(function (value, key) {
+        if (key.indexOf("utm_") === 0) tags.push(key + "=" + value);
+      });
+      var link = document.getElementById("email-link");
+      var subject = "Ollama Agent Loops Mini-Course Pack crypto order";
+      var body = "SKU: ollama-agent-loops-course\nPaid with (BTC or ETH): \ntxid: \nSent from address: \n";
+      if (tags.length) body += "\nRef: " + tags.join("&") + "\n";
+      link.href = "mailto:oneskilldrill@outlook.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    })();
+  </script>
+</body>
+</html>
