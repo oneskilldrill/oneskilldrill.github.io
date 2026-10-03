@@ -109,6 +109,26 @@
     if (v.footer) w.appendChild(el("div", "cf", md(v.footer)));
     return w;
   };
+  V.message = function (v) {
+    var ch = v.channel || "sms";
+    var w = el("div", "msgv " + esc(ch));
+    var icon = { sms: "💬", email: "✉️", call: "📞", voicemail: "📞" }[ch] || "💬";
+    var head = '<span class="mi">' + icon + '</span><span class="mf"><b>' + esc(v.from || "") + "</b>" +
+      (v.fromDetail ? "<small>" + esc(v.fromDetail) + "</small>" : "") + "</span>" + (v.time ? '<span class="mt">' + esc(v.time) + "</span>" : "");
+    w.appendChild(el("div", "mh", head));
+    if (v.subject) w.appendChild(el("div", "ms", "<small>Subject</small> " + esc(v.subject)));
+    var body = el("div", "mb");
+    if (v.lines) {
+      v.lines.forEach(function (x) {
+        body.appendChild(el("p", "ml " + (x.who === "you" ? "you" : "them"), "<b>" + esc(x.label || (x.who === "you" ? "You" : "Caller")) + ":</b> " + md(x.text)));
+      });
+    }
+    (Array.isArray(v.body) ? v.body : v.body ? [v.body] : []).forEach(function (t) { body.appendChild(el("p", "", md(t))); });
+    if (v.link) body.appendChild(el("p", "mlink", '<span>' + esc(v.link) + "</span>"));
+    w.appendChild(body);
+    if (v.note) w.appendChild(el("div", "mn", md(v.note)));
+    return w;
+  };
   function renderVisuals(list) {
     var box = el("div", "vis");
     (Array.isArray(list) ? list : list ? [list] : []).forEach(function (v) {
@@ -196,6 +216,7 @@
       fb.className = "fb show " + (o.correct ? "good" : "bad");
       fb.innerHTML = "<b>" + (o.correct ? "✓ Correct." : "✗ Not quite. Best answer: " + md(right.text)) + "</b>" +
         md(o.note && !o.correct ? o.note + " " + q.why : q.why) +
+        (q.rule ? q.rule.map(function (r) { return '<blockquote class="rule"><p>\u201c' + esc(r.text) + '\u201d</p><cite>' + esc(r.cite) + "</cite></blockquote>"; }).join("") : "") +
         (q.sources ? '<span class="src">Source: ' + srcRefs(q.sources) + "</span>" : "");
       pr.lastChild.textContent = "Score " + state.score;
       var nb = el("button", "btn", state.i + 1 < n ? "Next question" : "See my score");
@@ -294,6 +315,26 @@
     w.appendChild(ol);
     if (D.sourcesNote) w.appendChild(el("p", "", md(D.sourcesNote)));
     return w;
+  }
+
+  // Optional theme (CSS variables) and header override, e.g. for a buyer's own brand
+  if (D.theme) {
+    Object.keys(D.theme).forEach(function (k) {
+      if (/^[a-z-]+$/.test(k) && /^#[0-9a-fA-F]{3,8}$/.test(D.theme[k])) document.documentElement.style.setProperty("--" + k, D.theme[k]);
+    });
+  }
+  if (D.header) {
+    var top = document.querySelector(".top");
+    if (top) {
+      var H = D.header, logo;
+      if (H.logoUrl && /^(https:|data:image\/|\.?\/?[\w.-]+\.(png|svg|jpe?g|webp)$)/.test(H.logoUrl)) {
+        logo = '<img class="hlogo" src="' + esc(H.logoUrl) + '" alt="">';
+      } else {
+        logo = '<span class="hbadge">' + esc(H.logoText || (H.name || "").slice(0, 2)) + "</span>";
+      }
+      top.innerHTML = '<span class="brand hbrand">' + logo + "<span>" + esc(H.name || "") + "</span></span>" +
+        (H.tag ? '<span class="tag">' + esc(H.tag) + "</span>" : "");
+    }
   }
 
   // Footer
